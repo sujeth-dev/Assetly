@@ -27,6 +27,26 @@
   --khaki: #b1ad77; /* secondary text and underlines on dark surfaces */
   --ivory: #e7e3d4; /* logo/wordmark text on dark surfaces */
 
+  /*
+   * Compare graph tones. Not new colours: each is a mix of two §6 tokens, so
+   * the warm-monochrome palette is unchanged and nothing here is unbacked.
+   *
+   * Lease is the only chromatic bar and the two options it is compared with are
+   * warm neutrals, because bar height cannot carry "this is the better option":
+   * Lease is the shortest bar on Obsolescence and Leverage and the tallest on
+   * Tax, so the reading has to come from tone alone.
+   *
+   * Lease is Bottle's own hue held at a deeper lightness and roughly twice its
+   * chroma. It is written in oklch rather than mixed, and that makes it the one
+   * value here that is NOT derivable from the §6 tokens — mixing Bottle with
+   * Paper can only ever remove chroma, and Bottle starts at about 0.043, which
+   * is not enough to read as green at bar size against two neutrals. Hue 169.7
+   * is Bottle's, so this is the brand green saturated, not a new colour.
+   */
+  --graph-lease: oklch(0.44 0.092 169.7);
+  --graph-loan: color-mix(in srgb, var(--moss) 52%, var(--paper));
+  --graph-purchase: color-mix(in srgb, var(--moss) 26%, var(--paper));
+
   /* ---- §7 Typography ---------------------------------------------------- */
 
   /*

@@ -259,25 +259,40 @@
 }
 
 /*
- * One tone per option (DEC-047), stepped in lightness rather than scattered in
- * hue — the palette is warm-monochrome by decision (§6) and three unrelated
- * colours would be a louder change than the section needs. Lease keeps Bottle
- * and so stays the deepest of the three, which is the emphasis §13 reserves
- * for it; the two it is compared with recede in steps. All three are approved
- * tokens.
+ * One tone per option. Lease is the only chromatic bar; Loan and Purchase are
+ * warm neutrals that recede behind it.
+ *
+ * Tone has to carry "Lease is the better option" on its own, because height
+ * cannot. The bars are qualitative tiers, and Lease is the *shortest* on
+ * Obsolescence and Leverage and the tallest on Tax — so whichever way the chart
+ * happens to run, the endorsed option is the green one.
+ *
+ * This replaces a version where Lease was Bottle. Bottle is the deepest tone in
+ * the palette, and a short dark bar beside two lighter ones reads as the heavy,
+ * losing column rather than the recommended one — the pale Purchase bar was
+ * drawing the eye instead.
  */
 .fill[data-column="lease"] {
-  background: var(--bottle);
+  background: var(--graph-lease);
+  /*
+   * The lead bar sits forward of the other two: a faint accent edge and a
+   * shallow shadow, nothing more. Both are painted through the bar's own
+   * `scaleY`, which squashes them vertically at the shallower tiers, so both
+   * are kept small enough that the distortion does not read as anything.
+   */
+  outline: 1px solid color-mix(in srgb, var(--bottle) 46%, transparent);
+  outline-offset: -1px;
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--ink) 18%, transparent);
 }
 
 .fill[data-column="loan"] {
-  background: var(--moss);
+  background: var(--graph-loan);
 }
 
 .fill[data-column="purchase"] {
-  background: var(--khaki);
-  /* Khaki carries little contrast on Field; without an edge the tallest bar
-   * on the panel reads as an empty track rather than as a filled one. */
+  background: var(--graph-purchase);
+  /* The palest of the three carries little contrast on Field; without an edge
+   * a tall bar here reads as an empty track rather than as a filled one. */
   outline: 1px solid var(--line);
   outline-offset: -1px;
 }
