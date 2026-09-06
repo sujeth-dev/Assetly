@@ -162,6 +162,16 @@ Constraints that are invisible in the code but break things when violated. Full 
   at the same ratio with `object-fit: cover` is quietly cropped. This is engine-independent and was
   losing about 24px off the About photograph at every width.
 
+- **The palette has exactly one saturated colour, and it is the Compare graph's Lease bar**
+  (DEC-069). Everything else is a §6 token or a `color-mix` of two. The reason is measured rather
+  than aesthetic: Bottle's chroma is about 0.043, and mixing it with Paper only removes more, so no
+  mix reads as green at bar size. If another surface ever needs a vivid accent, reuse that value
+  rather than inventing a second one.
+- **Anything inside `.fill` in the Compare graph is drawn through `transform: scaleY()`** — outlines,
+  shadows and any child are squashed vertically in proportion to the tier, hard on the `minimal` tier
+  where the bar is about 24px of a 270px track. Position siblings against `--tier-scale` instead, and
+  keep edge effects small enough that the distortion does not read.
+
 ### Testing traps
 
 - `test.use({ reducedMotion })` does not reach the page here. Use `page.emulateMedia({ reducedMotion: "reduce" })`.

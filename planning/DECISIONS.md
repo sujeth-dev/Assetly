@@ -967,6 +967,43 @@ Every important technical or product decision, including conflict resolutions fo
 
 ---
 
+### DEC-069 - The Compare graph endorses the Lease column, and gains one saturated green
+
+- **Date**: 2026-09-06
+- **Decision**: The Compare calculator's three bars become a saturated green for Lease and two warm
+  neutrals for Loan and Purchase. Lease is `oklch(0.44 0.092 169.7)` — Bottle's own hue at roughly
+  twice its chroma and a deeper lightness — carrying a faint Bottle edge and a shallow shadow. Loan
+  and Purchase are `color-mix` of Moss and Paper at 52% and 26%.
+- **Reason**: The graph gave no sign of which column the section argues for, and read as arguing
+  against it. Lease held Bottle, the deepest tone in the palette, and it is the *shortest* bar on
+  Obsolescence and Leverage where lower is better — so a small dark bar beside two larger, lighter
+  ones read as the heavy losing column while the pale Khaki Purchase bar took the eye. Height cannot
+  carry the reading either, because Lease is the tallest bar on Tax and the shortest on the other
+  two. Only tone can, so the endorsed column is the only chromatic one.
+- **Alternatives considered**: Three greens stepped by how much colour each keeps; swapping the Lease
+  and Purchase assignments so Lease held Khaki; fading the two compared bars with `opacity`; a 2px
+  Bottle underline on the lead column; the Assetly mark placed above, and inside, the Lease bar;
+  every version of the Lease green reachable by mixing Bottle with Paper.
+- **Why rejected**: Three greens left too little separation once all three shared a hue. The
+  Lease/Purchase swap made Lease the lightest mark on a cream ground, which was fainter still on the
+  slides where it is also the shortest. The mark inside the bar is impossible at the `minimal` tier
+  (DEC-048): that bar is about 24px and the mark needs about 30, so it clipped. The mark above the
+  bar worked but reads as a badge applied to the chart rather than as part of the instrument. The
+  underline marks the column without making a short bar carry any more weight. **Every mixed green
+  was rejected for one measured reason: Bottle's chroma is about 0.043, and mixing it with Paper can
+  only remove chroma, so no mix reads as green at bar size against two neutrals.** Mixing in `oklch`
+  instead of `srgb` was tried for exactly this and made no visible difference.
+- **Consequences**: Supersedes DEC-047's stepped-lightness scheme and departs from §13's reservation
+  of Bottle for the Lease column — Bottle remains the interactive accent everywhere else, including
+  this panel's mode row and the lead column's label and value. **The Lease green is the first colour
+  on the site that is not a §6 token or a mix of them**, and at this chroma it is the most saturated
+  thing the site renders; it is confined to one bar in one panel. The edge and shadow are painted
+  through the bar's own `scaleY`, so both are squashed vertically at the shallower tiers and are
+  deliberately small enough that the distortion does not read.
+- **Status**: Active
+
+---
+
 ## Decision index
 
 | ID | Topic | Status |
@@ -1017,7 +1054,7 @@ Every important technical or product decision, including conflict resolutions fo
 | DEC-044 | Home button carries the full "assetly leasing" lockup | Active |
 | DEC-045 | Compare reads Ownership Risk, Tax, Leverage, Upfront Cash; renumbered 01-04 | Superseded by DEC-052 |
 | DEC-046 | Slide 01 titled Ownership Risk; the tax argument drops two claims | Title superseded by DEC-051 |
-| DEC-047 | The graph's three columns carry three tones, stepped in lightness | Active |
+| DEC-047 | The graph's three columns carry three tones, stepped in lightness | Superseded by DEC-069 |
 | DEC-048 | A fourth `minimal` tier, used by Upfront Cash's Lease reading | Active |
 | DEC-049 | Published contact identity is finance@assetly.lease / +91 81231 96924 | Active |
 | DEC-050 | About uses the owner's four-paragraph company and leadership statement | Active |
@@ -1039,3 +1076,4 @@ Every important technical or product decision, including conflict resolutions fo
 | DEC-066 | Plate mechanisms de-synchronised; keyway signals load transfer | Active |
 | DEC-067 | The admin is a workspace holding sections, not the Trusted By page | Active |
 | DEC-068 | The About frame is sized by its photograph, not by a ratio of its own | Active |
+| DEC-069 | The Compare graph endorses the Lease column, and gains one saturated green | Active |
